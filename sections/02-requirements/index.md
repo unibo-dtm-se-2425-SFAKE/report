@@ -4,25 +4,60 @@ has_children: false
 nav_order: 3
 ---
 
-# Requirements
+## Requirements
 
-## User stories
+### User stories
 
-- Write down [user stories](https://www.atlassian.com/agile/project-management/user-stories) to devise the main __personas__ (user roles) and the activities they will perform via the system to be developed.
+- As a player, I want to control the snake using keyboard arrows, so that I can move it in different directions.
 
-## Requirements analysis
+- As a player, I want to see my score updated in real-time, so that I can track my progress.
 
-- The requirements must explain **what** (not how) the software being produced should do.
-    - You should not focus on the particular problems, but exclusively on what you want the application to do.
-- Requirements must be clearly identified, and possibly numbered.
-- Requirements are divided into:
-    - **Functional**: some functionality the software should provide to the user.
-    - **Non-functional**: requirements that do not directly concern behavioral aspects, such as consistency, availability, security, efficiency, etc.
-    - **Implementation**: constrain the entire phase of system realization, for instance by requiring the use of a specific programming language and/or a specific software dependency.
-        - These constraints should be adequately justified by political / economic / administrative reasons (which must be written down)...
-        - ...otherwise, implementation choices should emerge *as a consequence of* design (and therefore described in the design section).
-- If there are domain-specific terms, these should be explained in a **glossary**.
-- Each requirement must have its own **acceptance criteria**.
-    - These will be important for the validation phase. 
+- As a player, I want the game to end when the snake collides with itself, the walls, or a bomb, so that the challenge is maintained.
 
-> You may consider adding a use-case diagram here (via PlantUML) to better visualize the requirements and their relationships
+- As a player, I want to have a clear game over screen with my final score, so that I can evaluate my performance.
+
+- As a player, I want to restart the game easily from the menu, so that I can play multiple sessions without restarting the application.
+
+- As a player, I want to see bombs occasionally appear and disappear after a short time, so that the gameplay is more dynamic and engaging.
+
+- As a player, I want a menu with “Start”, “Rules”, and “Quit” options, so that I can navigate and configure the game easily.
+
+### Requirements analysis
+
+#### Functional Requirements
+
+- FR1: The system shall allow the player to control the snake via arrow keys.
+Acceptance criteria: the snake reacts immediately to input and changes direction without delay, except from opposite directions inputs.
+
+- FR2: The system shall display the current score during the game.
+Acceptance criteria: the score increases by 1 unit when a fruit is collected.
+
+- FR3: The system shall end the game when the snake collides with itself, the borders, or a bomb.
+Acceptance criteria: collision detection works consistently in all cases.
+
+- FR4: The system shall show a game over screen with the final score and a “Restart” option.
+Acceptance criteria: after a game ends, the player sees the score and can restart from the menu.
+
+- FR5: The system shall occasionally spawn temporary bombs after every 3–4 fruits collected.
+Acceptance criteria: bombs appear at random positions, last 5 seconds, and disappear if not touched.
+
+- FR6: The system shall include a main menu with “Start”, “Rules”, and “Quit”.
+Acceptance criteria: each menu option works as expected, popup for the “Rules” button included.
+
+#### Non-Functional Requirements
+
+- NFR1: The game shall run on common desktop environments (Windows, macOS, Linux).
+
+- NFR2 : The application shall maintain a responsive frame rate (≥ 30 FPS).
+
+- NFR3: The project shall include automated unit tests for core components (model, view, controller).
+
+- NFR4: The source code shall be version-controlled via Git and hosted on GitHub.
+
+#### Implementation Constraints
+
+- IC1: The system must be implemented in Python, with Pygame for graphics.
+
+- IC2: The project must follow an MVC architecture.
+
+- IC3: Continuous Integration and Deployment must be managed via GitHub Action or using semantic versioning to have clear cut commits.
