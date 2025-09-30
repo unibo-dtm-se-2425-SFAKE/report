@@ -34,8 +34,8 @@ The core functionalities rely on Pygame, a library built on top of the SDL frame
 
 The project also integrates several tools aimed at ensuring code quality and reliability.
 
-- Mypy supports static type checking, reducing the likelihood of type-related errors. 
-- Prospector aggregates multiple linting and style analysis tools, enforcing consistency and maintainability of the source code. 
+- Mypy supports static type checking, reducing the likelihood of type-related errors.
+- Prospector aggregates multiple linting and style analysis tools, enforcing consistency and maintainability of the source code.
 - Coverage was used to measure the extent of test verification, providing an indicator of the robustness of the test suite.
 
 Finally, additional dependencies are managed through the requirements.txt file and the dev-version of it, ensuring reproducibility of the development environment and simplifying collaboration and deployment.
