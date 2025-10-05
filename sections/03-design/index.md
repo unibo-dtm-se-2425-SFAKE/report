@@ -21,18 +21,6 @@ Ideally, the design should be the same, regardless of the technological choices 
 
 > UML Components diagrams are welcome here
 
-## Infrastructure (mostly applies to distributed systems)
-
-- Are there **infrastructural components** that need to be introduced? Which and **how many** of each?
-    - e.g. **clients**, **servers**, **load balancers**, **caches**, **databases**, **message brokers**, **queues**, **workers**, **proxies**, **firewalls**, **CDNs**, etc.
-- How do components **distribute** over the network? **Where** are they located?
-    - e.g. do servers / brokers / databases / etc. sit on the same machine? on the same network? on the same datacenter? on the same continent?
-- How do components **find** each other?
-    - How to **name** components?
-    - e.g. **DNS**, **service discovery**, **load balancing**, etc.
-
-> UML deployment diagrams are welcome here
-
 ## Modelling
 
 ### Domain driven design (DDD) modelling
@@ -52,19 +40,6 @@ Ideally, the design should be the same, regardless of the technological choices 
 
 > UML class diagrams are welcome here
 
-### In case of a distributed system
-
-- How do the domain concepts map to the architectural or infrastuctural components?
-    + i.e. which architectural/component is responsible for which domain concept?
-    + are there data types which are required onto multiple components? (e.g. messages being exchanged between components)
-
-- What are the domain concepts or data types which represent the state of the distributed system?
-    + e.g. state of a video game on central server, while inputs/representations on clients
-    + e.g. where to store messages in an instant-messaging app? for how long?
-
-- Are there domain concepts or data types which represent messages being exchanged between components?
-    + e.g. messages between clients and servers, messages between servers, messages between clients
-
 ## Interaction
 
 - How do components *communicate*? *When*? *What*?
@@ -81,19 +56,3 @@ Ideally, the design should be the same, regardless of the technological choices 
 - Which components are in charge of updating the **state** of the system? *When*? *How*?
 
 > UML state diagrams or activity diagrams are welcome here
-
-## Data-related aspects (in case persistent storage is needed)
-
-- Is there any data that needs to be stored?
-    - *What* data? *Where*? *Why*?
-
-- How should **persistent data** be **stored**? Why?
-    - e.g., relations, documents, key-value, graph, etc.
-
-- Which components perform queries on the database?
-    - *When*? *Which* queries? *Why*?
-    - Concurrent read? Concurrent write? Why?
-
-- Is there any data that needs to be shared between components?
-    - *Why*? *What* data?
-
