@@ -1,3 +1,4 @@
+
 ---
 title: Design
 has_children: false
@@ -13,7 +14,7 @@ The design of Sfake has been guided by the need to create a system that is modul
 The architectural style adopted in Sfake is the Model-View-Controller (MVC) pattern. This choice was made because the separation of concerns offered by MVC aligns well with the structure of a video game like Snake, where the logic that governs gameplay must remain independent from both the rendering layer and the way users interact with the system. Other architectural styles, such as layered architectures or event-driven designs, were considered but ultimately rejected. A layered approach would have introduced unnecessary complexity for a project of this scope, while a purely event-driven design would have made the logic harder to trace and test in a deterministic way. MVC offered the right balance between simplicity, testability, and extensibility.
 At a high level, the architecture consists of three main components: the Model, responsible for maintaining the state of the game and implementing the business logic; the View, which manages the rendering of the game elements and user interface; and the Controller, which mediates user inputs and delegates updates to the Model. Their responsibilities are clearly defined and non-overlapping. The Model is the only component allowed to update the state, the View only reads from the state to display it, and the Controller is responsible for capturing external events and mapping them into model updates.
 
-![Components Diagram](pictures/components-diagram.png)
+![Sequence Diagram](../../pictures/sequence-diagram.png)
 
 ### Infrastructure
 
@@ -25,7 +26,7 @@ Despite its simplicity, the infrastructural design ensures that the system can b
 The modelling of the system was approached using Domain-Driven Design (DDD) principles. The bounded context of the application corresponds to the domain of the Snake game. Within this domain, several core concepts were identified. The Snake entity represents the player’s avatar, with attributes such as its body segments and direction of movement. The Apple is another entity, functioning as a consumable object that triggers growth and score updates. The Bomb is modeled as a timed entity with its own lifecycle, expiring after a fixed duration. The Score is treated as a value object, updated upon interactions with apples and displayed to the player.
 Supporting these entities, repositories and services have been defined implicitly within the model. For example, the spawn logic for apples and bombs can be considered as domain services, since they encapsulate domain rules that do not belong to a single entity. Domain events such as apple consumed, bomb exploded, or game over provide a conceptual map of how the system evolves over time.
 
-![Class Diagram](pictures/class-diagram.png)
+![Class Diagram](../../pictures/class-diagram.png)
 
 ### Object-Oriented Modelling
 
@@ -37,7 +38,7 @@ The View classes are responsible for drawing the snake, apples, bombs, and UI co
 The communication between components follows the MVC interaction pattern. User input, such as pressing an arrow key, is first captured by the Controller. The Controller then invokes the appropriate method on the Model to change the snake’s direction. After the Model has updated its state (for instance, moving the snake forward and checking for collisions) the View queries the Model and refreshes the screen accordingly.
 This cycle of input–update–render continues until a terminal condition is reached, such as the snake colliding with a bomb or with itself. At that point, the Model updates its state to reflect the “game over” condition, and the View is responsible for rendering the corresponding screen. The Controller remains active, listening for restart commands.
 
-![Sequence Diagram](pictures/sequence-diagram.png)
+![Sequence Diagram](../../pictures/sequence-diagram.png)
 
 ### Behaviour
 
@@ -45,7 +46,7 @@ Each component exhibits well-defined behavior in response to events. The Model i
 The lifecycle of the Snake entity, for example, can be described using a state diagram: it starts in an initial state with a fixed length, grows upon apple consumption, and transitions into a terminal state upon collision. Similarly, the Bomb entity follows a timed lifecycle, appearing on the screen, counting down, and either disappearing harmlessly or causing the end of the game if touched.
 These behaviors can be summarized through UML state diagrams and activity diagrams.
 
-![State Diagram](pictures/state-diagram.png)
+![State Diagram](../../pictures/state-diagram.png)
 
 ### Data-related aspects
 
