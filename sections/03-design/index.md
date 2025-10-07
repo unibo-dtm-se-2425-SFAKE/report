@@ -1,10 +1,8 @@
-
 ---
 title: Design
 has_children: false
 nav_order: 4
 ---
-
 ### Design
 
 The design of Sfake has been guided by the need to create a system that is modular, maintainable, and extensible, while at the same time remaining simple enough to be fully understood and tested in an academic context. The strategies described in this chapter are meant to show how the requirements identified during the analysis phase were translated into a coherent set of architectural, infrastructural, and modeling decisions. Importantly, the design has been conceived in a way that does not depend on specific technological choices, so that the same structure could be implemented even with different frameworks or programming languages.
@@ -14,7 +12,7 @@ The design of Sfake has been guided by the need to create a system that is modul
 The architectural style adopted in Sfake is the Model-View-Controller (MVC) pattern. This choice was made because the separation of concerns offered by MVC aligns well with the structure of a video game like Snake, where the logic that governs gameplay must remain independent from both the rendering layer and the way users interact with the system. Other architectural styles, such as layered architectures or event-driven designs, were considered but ultimately rejected. A layered approach would have introduced unnecessary complexity for a project of this scope, while a purely event-driven design would have made the logic harder to trace and test in a deterministic way. MVC offered the right balance between simplicity, testability, and extensibility.
 At a high level, the architecture consists of three main components: the Model, responsible for maintaining the state of the game and implementing the business logic; the View, which manages the rendering of the game elements and user interface; and the Controller, which mediates user inputs and delegates updates to the Model. Their responsibilities are clearly defined and non-overlapping. The Model is the only component allowed to update the state, the View only reads from the state to display it, and the Controller is responsible for capturing external events and mapping them into model updates.
 
-![Sequence Diagram](../../pictures/sequence-diagram.png)
+![Components Diagram](../../pictures/components-diagram.png)
 
 ### Infrastructure
 
