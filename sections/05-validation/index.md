@@ -1,5 +1,5 @@
 ---
-title: Release
+title: Validation
 has_children: false
 nav_order: 7
 ---
